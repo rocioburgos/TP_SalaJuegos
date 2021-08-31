@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+ import { Usuario } from './../../clases/usuario/usuario';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+ // usuario:Usuario;
+  clave:string;
+  email:string;
+
+
+  constructor() { 
+    
+    this.email= '';
+    this.clave='';
+  }
 
   ngOnInit(): void {
   }

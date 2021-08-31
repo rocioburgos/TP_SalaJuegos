@@ -1,22 +1,38 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+
+
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from '../environments/environment';
+ 
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    QuiensoyComponent
+    QuiensoyComponent,
+    RegistroComponent
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule ,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule 
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
