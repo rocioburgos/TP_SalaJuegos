@@ -12,13 +12,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		<div class="design-w3l">
 			<div class="mail-form-agile">
-				<form action="#" method="post">
+				<form action="#" method="post" (ngSubmit)='loginUser()'>
 					<input type="email" name="email" placeholder="Email" required="" [(ngModel)]='email' />
 					<input type="password"  name="clave" class="padding" placeholder="Contraseña" required="" [(ngModel)]='clave' />
 					<input type="submit" value="Aceptar">
+					<input type="button" value="Autocompletar" (click)='autocompletar()'> 
+					
 				</form>
+			
 			</div>
 		  <div class="clear"> </div>
+		 
 		</div>
 
 		<!--div class="footer">

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Usuario } from 'src/app/clases/usuario/usuario';
-//import { AuthService } from 'src/app/servicios/auth.service';
+import { AuthService } from 'src/app/servicios/auth.service';
  
 
 @Component({
@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
  
   constructor(
     private router:Router
-    //,private authSrv:AuthService 
+    ,private authSrv:AuthService 
     ) {  
     this.clave='';
     this.nombre='';
@@ -28,20 +28,18 @@ export class RegistroComponent implements OnInit {
   }
 
   async onRegistro(){
-  
-    
-  /*  try {
+   try {
      const user= await this.authSrv.registerUser(this.email, this.clave);
     
      if(user){ 
- 
+      alert(user.email);
 
       this.router.navigate(['/home']);
     } 
 
     } catch (error) {
       console.log(error);
-    }*/
+    }
   
   }
 
