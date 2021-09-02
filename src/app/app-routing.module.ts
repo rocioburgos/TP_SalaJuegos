@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
   {path:'quiensoy', component:QuiensoyComponent},
-  {path:'registro', component:RegistroComponent},//CAMBIAR AL COMPONENTE REGISTRO
+  {path:'registro', component:RegistroComponent},//CAMBIAR AL COMPONENTE REGISTRO 
   { path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}
 ];

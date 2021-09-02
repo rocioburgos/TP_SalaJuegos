@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   clave:string;
   email:string;
 
-
+  show_error:boolean=false; //
+  descripcion_error:string='';
   constructor(
     private  authSrv: AuthService
     ,private router: Router
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
     } 
 
     } catch (error) {
+      this.show_error= true;
+      this.descripcion_error='La clave o email no coinciden. Vuelva a intentar.'
       console.log(error);
     }
   

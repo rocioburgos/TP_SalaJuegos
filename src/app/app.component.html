@@ -1,4 +1,4 @@
- 
+  
 <header   class=" header px-3 py-2 bg-dark text-white" >
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -6,9 +6,10 @@
           <img src="../assets/favicon.png" width="50px"> 
         <h1> Sala de juegos</h1>
         
-        </a> 
+        </a>
+        
+        <!-- VISIBLE PARA TODOS-->
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
- 
           <li>
             <a routerLink='home' class="nav-link text-white">
               Inicio
@@ -19,17 +20,22 @@
               Juegos
             </a>
           </li>
-
-        
-
-
           <li>
             <a routerLink='#' class="nav-link text-white">
               Listados
             </a>
+          </li>  
+
+          <li>
+            <a routerLink='quiensoy' class="nav-link text-white">
+            Quien soy
+            </a>
           </li>
-          
-         <!-- SI NO ESTA REGISTRADO -->
+          </ul>    
+
+
+          <!-- SI NO ESTA logueado -->
+          <ul> 
           <li>
             <a class="nav-link text-white" href="login">
              Login
@@ -40,27 +46,16 @@
              Registro
             </a>
           </li> 
-
-          <!-- SI ESTA REGISTRADO -->
-         <!--
+        </ul> 
+          <!-- SI  ESTA logueado -->
+        <ul> 
           <li>
-           <p> {{}} </p>
+           <p>   </p>
             <img src='./../assets/jugador.png' width="35px" class="rounded-circle">
           </li>
-          <li>
-            <a class="nav-link text-white" href="registro">
-             Cerrar sesion
-            </a>
-          </li>
-        -->
-
-                
-
-           
-
-          <li>
-            <a routerLink='quiensoy' class="nav-link text-white">
-            Quien soy
+          <li  >
+            <a   class="nav-link text-white" href="#">
+             Cerrar Sesion
             </a>
           </li>
 

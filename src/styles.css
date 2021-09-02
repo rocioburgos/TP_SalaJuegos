@@ -30,8 +30,8 @@ img{max-width:100%;}
 /****-----start-body----****/
 body{
 text-align: center;
-background: url("./assets/images_login/1.jpg") 0px 0px no-repeat;
-background-size:cover;
+background: url("./assets/fondo.jpg") 0px 0px  repeat;
+background-size: auto;
 background-attachment: fixed;
 }
 

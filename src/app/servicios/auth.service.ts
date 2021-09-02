@@ -26,6 +26,8 @@ export class AuthService {
       const resultado =  this.afAuth.signInWithEmailAndPassword(email, clave);
      return  resultado;
     }
+
+     
   
   
 }
