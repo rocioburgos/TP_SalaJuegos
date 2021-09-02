@@ -4,6 +4,7 @@ export class Usuario {
     email:string;
     clave:string;
     uid:string;
+    
     constructor(uid:string, nombre:string, email:string, clave:string){
         this.nombre= nombre;
         this.email= email;

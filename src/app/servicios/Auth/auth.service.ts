@@ -15,10 +15,8 @@ export class AuthService {
  
 
     public async registerUser(email:string, clave:string):Promise<any>{
-    
            const resultado= await this.afAuth.createUserWithEmailAndPassword(email, clave);
            return resultado;
-     
     }
 
 

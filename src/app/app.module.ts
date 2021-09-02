@@ -14,7 +14,8 @@ import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import {firebase} from '../environments/firebase';
-import { AuthService } from './servicios/auth.service';
+import { AuthService } from './servicios/Auth/auth.service';
+import { JugadoresService } from './servicios/jugadores/jugadores.service';
  
 
 
@@ -36,7 +37,8 @@ import { AuthService } from './servicios/auth.service';
     AngularFirestoreModule 
  
   ],
-  providers: [AuthService],
+  providers: [AuthService
+    , JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
