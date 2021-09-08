@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
- 
+<app-navbar></app-navbar>
 	<div class="padding-all">
 		<div class="header">
 			<h1>Ingreso</h1>
@@ -12,14 +12,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="design-w3l">
 
 			
-		<!--div class="card text-white bg-danger" >
+		<div *ngIf='show_error'class="card text-white bg-danger" >
 			<div class="card-header">Error</div>
 			<div class="card-body"> 
 			  <p class="card-text">
 				{{ descripcion_error }}
 			  </p>
 			</div>
-		  </div-->
+		  </div>
 	
 			<div class="mail-form-agile">
 				<form action="#" method="post" (ngSubmit)='loginUser()'>

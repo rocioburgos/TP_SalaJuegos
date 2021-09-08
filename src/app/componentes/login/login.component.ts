@@ -35,13 +35,17 @@ export class LoginComponent implements OnInit {
  
     try {
       const user=  await this.authSrv.loginUser(this.email, this.clave);
-      if(user){
-
-        this.jugadoresSrv.registrarNuevaSesion(this.email);
-       this.router.navigate(['/home']);
-    } 
+        if(user){
+            this.jugadoresSrv.registrarNuevaSesion(this.email);
+            localStorage.setItem('usuario_juegos', JSON.stringify ({'email': this.email,  'sesion':'activa'  }));
+           // let retorno=  this.authSrv.getCurrentUserFirebase();
+          //  console.log("RETORNO DEL USUARIO ACTUAL: "+retorno);
+            this.router.navigate(['/home']);
+        } 
+    
 
     } catch (error) {
+
       this.show_error= true;
       this.descripcion_error='La clave o email no coinciden. Vuelva a intentar.'
       console.log(error);
@@ -53,5 +57,7 @@ export class LoginComponent implements OnInit {
     this.email='pepe@gmail.com';
     this.clave= '123456';
   }
+
+
 
 }

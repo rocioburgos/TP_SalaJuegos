@@ -15,6 +15,9 @@ export class RegistroComponent implements OnInit {
   clave:string;
   nombre:string;
   email:string;
+
+  show_error:boolean=false; //
+  descripcion_error:string='';
  
   constructor(
     private router:Router
@@ -38,10 +41,14 @@ export class RegistroComponent implements OnInit {
       let uid='';
       let usuario= new Usuario( uid, this.nombre, this.email, this.clave);
       this.jugadoresSrv.registrarNuevoJugador(usuario);
+      localStorage.setItem('usuario_juegos', JSON.stringify ({'email': this.email,  'sesion':'activa'  }));
       this.router.navigate(['/home']);
     } 
 
     } catch (error) {
+ 
+      this.show_error= true;
+      this.descripcion_error='Error al registrar el usuario. Vuelva a intentar.'
       console.log(error);
     }
   

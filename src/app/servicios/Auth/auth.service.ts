@@ -4,6 +4,9 @@ import 'rxjs/add/operator/switchMap';
  
 
 import { AngularFireAuth  } from '@angular/fire/compat/auth';
+import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/clases/usuario/usuario';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 @Injectable()
 
 
@@ -22,10 +25,32 @@ export class AuthService {
 
     public async loginUser(email:string, clave:string):Promise<any>{
       const resultado =  this.afAuth.signInWithEmailAndPassword(email, clave);
+ 
      return  resultado;
     }
 
-     
+
+    public async LogOut(){
+      localStorage.removeItem('usuario_juegos');
+      this.afAuth.signOut();
+      //actualizar el 
+    }
+
+
+    getCurrentUserFirebase(): Observable<any>{
+        return this.afAuth.authState;
+    }
+
+
+    getCurrentUserLS(): any{
+      const userJson = localStorage.getItem('usuario_juegos');  
+       if(userJson != null  ){
+       return JSON.parse(userJson); 
+       }else{
+         return null;
+       }
+    }
   
+
   
 }

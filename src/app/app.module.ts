@@ -16,6 +16,8 @@ import { environment } from '../environments/environment';
 import {firebase} from '../environments/firebase';
 import { AuthService } from './servicios/Auth/auth.service';
 import { JugadoresService } from './servicios/jugadores/jugadores.service';
+import { ErrorComponent } from './componentes/error/error.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
  
 
 
@@ -26,7 +28,9 @@ import { JugadoresService } from './servicios/jugadores/jugadores.service';
     LoginComponent,
     HomeComponent,
     QuiensoyComponent,
-    RegistroComponent
+    RegistroComponent,
+    ErrorComponent,
+    NavbarComponent
   ],
   imports: [ 
     BrowserModule,
