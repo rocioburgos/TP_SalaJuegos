@@ -15,7 +15,7 @@
                 </a>
               </li>
               <li>
-                <a href='#' class="nav-link text-white">
+                <a href='juegos' class="nav-link text-white">
                   Juegos
                 </a>
               </li>
@@ -46,12 +46,11 @@
               <!--SI ESTA LOGEADO-->
             <li *ngIf='estado_activo' class="nav-link text-white">{{nombre_usuario}}</li>
             <li *ngIf='estado_activo' class="nav-link text-white">
-              <button (click)='cerrarSesion()'>Cerrar sesion</button>
+              <button class="btn btn-danger" (click)='cerrarSesion()'>Cerrar sesion</button>
             </li> 
   
             </ul>
   
-   
    
         </div>
       </div>

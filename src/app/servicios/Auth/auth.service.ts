@@ -33,7 +33,7 @@ export class AuthService {
     public async LogOut(){
       localStorage.removeItem('usuario_juegos');
       this.afAuth.signOut();
-      //actualizar el 
+      //actualizar el firebase
     }
 
 

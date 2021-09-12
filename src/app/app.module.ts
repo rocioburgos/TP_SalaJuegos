@@ -18,6 +18,10 @@ import { AuthService } from './servicios/Auth/auth.service';
 import { JugadoresService } from './servicios/jugadores/jugadores.service';
 import { ErrorComponent } from './componentes/error/error.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { ChatComponent } from './componentes/chat/chat.component';
+import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
+import { HttpClientModule } from '@angular/common/http';
+import { JuegosComponent } from './componentes/juegos/juegos.component';
  
 
 
@@ -30,7 +34,10 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     QuiensoyComponent,
     RegistroComponent,
     ErrorComponent,
-    NavbarComponent
+    NavbarComponent,
+    ChatComponent,
+    AhorcadoComponent,
+    JuegosComponent
   ],
   imports: [ 
     BrowserModule,
@@ -38,7 +45,8 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     FormsModule ,
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule 
+    AngularFirestoreModule ,
+    HttpClientModule
  
   ],
   providers: [AuthService
