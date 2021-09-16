@@ -8,7 +8,6 @@
                 <div class="recent_heading">
                   <h4>Recientes</h4>
                 </div>
- 
               </div>
               <div class="inbox_chat">
                 <div class="chat_list active_chat">
@@ -20,9 +19,6 @@
                     </div>
                   </div>
                 </div>
- 
-  
-    
               </div>
             </div>
             <div class="mesgs">
@@ -35,16 +31,11 @@
                       <span class="time_date">  {{hora}} |   {{fecha}} </span></div>
                   </div>
                 </div>
-
-  
-     
-    
-  
               </div>
               <div class="type_msg">
                 <div class="input_msg_write">
-                  <input type="text" class="write_msg" placeholder="Escribir un mensaje..." />
-                  <button class="msg_send_btn" type="button"><img src="./../../../assets/enviar.png"></button>
+                  <input  [(ngModel)] ='mensajeEnviar' type="text" class="write_msg" placeholder="Escribir un mensaje..." />
+                  <button class="msg_send_btn" type="button" (click)='mandarMensaje( )'><img src="./../../../assets/enviar.png"></button>
                 </div>
               </div>
             </div>

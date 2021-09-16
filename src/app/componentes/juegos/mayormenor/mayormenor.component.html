@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container" style="background:slateblue;">
+    
+    <div class="row" style="text-align:center">
+        <div class="column" style="min-width: 50%; text-align: left; max-height: 80px">
+            <h2 >Aciertos: {{cuenta}}</h2>
+            <h4>Vidas restantes: {{vidas}}</h4>
+            <br> 
+            <h3>Tiempo: {{timeLeft}}</h3>
+        </div>
+    </div>
+
+
+    <div class="row"  >
+        <div class="column "  >
+            <img width="100px"  src={{cartaPrincipal_src}}>
+        </div>
+        <div class="column"  >
+            <label >Esta carta es: </label>
+            <select [(ngModel)]="operadorSeleccionado">
+                
+                <option style="text-align: center"   [value]='1'  selected> Menor </option>
+                <option style="text-align: center"   [value]='2' > Igual </option>
+                <option style="text-align: center"   [value]='3' > Mayor </option>
+            </select> 
+        </div>
+        <div class="column"  > 
+            <img width="100px"  src={{cartaSecundaria_src}}>
+        </div>
+        <br>
+        <div class="column"  > 
+            <button  class="btn btn-primary" role="button"style="margin-right: 5px">probar suerte</button>
+            <button   class="btn btn-primary" role="button" style="margin-right: 5px">volver a intentarlo</button>
+        </div>
+    </div>
+
+</div>

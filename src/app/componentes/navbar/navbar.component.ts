@@ -41,6 +41,7 @@ export class NavbarComponent implements OnInit {
       this.estado_activo =false;
       }
       else if(usuario!=null && usuario.sesion=="activa"){
+        this.nombre_usuario= usuario.email;
         this.estado_activo =true;
       }
   }

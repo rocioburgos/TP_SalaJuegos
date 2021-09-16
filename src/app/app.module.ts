@@ -22,6 +22,7 @@ import { ChatComponent } from './componentes/chat/chat.component';
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
+import { MayormenorComponent } from './componentes/juegos/mayormenor/mayormenor.component';
  
 
 
@@ -37,7 +38,8 @@ import { JuegosComponent } from './componentes/juegos/juegos.component';
     NavbarComponent,
     ChatComponent,
     AhorcadoComponent,
-    JuegosComponent
+    JuegosComponent,
+    MayormenorComponent
   ],
   imports: [ 
     BrowserModule,

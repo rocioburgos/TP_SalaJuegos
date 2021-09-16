@@ -48,7 +48,11 @@
             <li *ngIf='estado_activo' class="nav-link text-white">
               <button class="btn btn-danger" (click)='cerrarSesion()'>Cerrar sesion</button>
             </li> 
-  
+
+            <li *ngIf='estado_activo'>
+              <a href="chat" class="btn-flotante">Chat</a>
+            </li>
+
             </ul>
   
    
