@@ -1,31 +1,60 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChatComponent } from './componentes/chat/chat.component';
-import { HomeComponent } from './componentes/home/home.component';
-import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
-import { JuegosComponent } from './componentes/juegos/juegos.component';
-import { MayormenorComponent } from './componentes/juegos/mayormenor/mayormenor.component';
-import { PreguntadosComponent } from './componentes/juegos/preguntados/preguntados.component';
-import { SimonComponent } from './componentes/juegos/simon/simon.component';
-import { LoginComponent } from './componentes/login/login.component';
-import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
-import { RegistroComponent } from './componentes/registro/registro.component';
+import { NavbarComponent } from './componentes/navbar/navbar.component';
+ 
 import { UsuarioLogueadoGuard } from './guard/usuario-logueado.guard';
 
 const routes: Routes = [
-  {path:'login', component:LoginComponent},
-  {path:'home', component:HomeComponent},
-  {path:'quiensoy', component:QuiensoyComponent},
-  {path:'registro', component:RegistroComponent},//CAMBIAR AL COMPONENTE REGISTRO 
-  {path:'cerrarSesion', component:LoginComponent, canActivate: [UsuarioLogueadoGuard ]},
-  {path:'juegos', component:JuegosComponent},
-  {path:'juegos/ahorcado', component: AhorcadoComponent, canActivate: [UsuarioLogueadoGuard ]},
-  {path:'juegos/mayorMenor', component: MayormenorComponent, canActivate: [UsuarioLogueadoGuard ]},
-  {path:'juegos/preguntados', component: PreguntadosComponent, canActivate: [UsuarioLogueadoGuard ]},
-  {path:'juegos/simon', component: SimonComponent, canActivate: [UsuarioLogueadoGuard ]},
-  {path:'chat', component:ChatComponent, canActivate: [UsuarioLogueadoGuard ]},
-  { path:'', component: HomeComponent},
-  {path:'**', component: HomeComponent}
+ 
+ 
+  {  
+      path: 'quiensoy', 
+      loadChildren: () => import('./modulos/quiensoy/quiensoy.module').then(m => m.QuiensoyModule)
+  },
+  { 
+    path: 'navbar', 
+   component:NavbarComponent
+    // loadChildren: () => import('./modulos/navbar/navbar.module').then(m => m.NavbarModule) 
+  },
+  { 
+    path: 'chat', 
+    loadChildren: () => import('./modulos/chat/chat.module').then(m => m.ChatModule) 
+  },
+  { 
+    path: 'error', 
+    loadChildren: () => import('./modulos/error/error.module').then(m => m.ErrorModule) 
+  },
+  { 
+    path: 'home', 
+    loadChildren: () => import('./modulos/home/home.module').then(m => m.HomeModule) 
+  },
+  { 
+    path: 'juegos', 
+    loadChildren: () => import('./modulos/juegos/juegos.module').then(m => m.JuegosModule) 
+  },
+  { 
+    path: 'login', 
+    loadChildren: () => import('./modulos/login/login.module').then(m => m.LoginModule) 
+  },
+  {   path:'cerrarSesion',  
+      loadChildren: () => import('./modulos/login/login.module').then(m => m.LoginModule),
+      canActivate: [UsuarioLogueadoGuard ]
+  },
+  { 
+      path: 'registro', 
+      loadChildren: () => import('./modulos/registro/registro.module').then(m => m.RegistroModule) 
+  },
+
+  {   
+    path:'', 
+    redirectTo:'home',
+    pathMatch: 'full'
+  },
+  {
+    path:'**', 
+    redirectTo:'home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 import { Router } from '@angular/router';
 import { map } from '@firebase/util';
 import { switchMap } from 'rxjs-compat/operator/switchMap';
@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/servicios/Auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
 
   titulo = 'Sala de Juegos';
   estado_activo?:boolean;
@@ -28,7 +29,7 @@ export class NavbarComponent implements OnInit {
   async cerrarSesion(){
     try {
       await this.authSv.LogOut();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']).then(() => this.usuarioActual());
       
     } catch (error) {
       console.log("Error al cerrar sesion" + error);
@@ -46,6 +47,5 @@ export class NavbarComponent implements OnInit {
       }
   }
 
-  
- 
+
 }
