@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Mensaje } from 'src/app/clases/mensaje/mensaje';
+import { MensajeService } from 'src/app/servicios/mensaje/mensaje.service';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
+  
   remitente:string='Natalia';
   destinatario:string='Pepe';//el usuario Actual, depende de si estoy mandando o recibiendo mensajes
   fecha:string='12 Sept';
   hora:string='11:11 AM';
-  mensaje:string='Test, which is a new approach to have all solutions astrology under one roof';
+  //mensajes?:Mensaje;
+  mensaje:string='';
   mensajeEnviar:string='';
-  constructor() { }
+  constructor(private msjSrv:MensajeService) { }
 
   ngOnInit(): void {
   }
@@ -35,5 +37,22 @@ export class ChatComponent implements OnInit {
   mandarMensaje(){
      //tomar -mensajeEnviar -remitente (va a ser el detinatario) - mi usuario actual y la fecha y hora
       //y mandarla a firebase
+      
+      try {
+        if(this.mensajeEnviar!='' && this.mensajeEnviar!= null && this.mensajeEnviar != ' '){
+          let mensaje:Mensaje= new Mensaje('pepe@gmail.com','pepito@gmail.com',"Holisss",this.horario());
+          this.msjSrv.nuevoMensaje(mensaje);  
+        }
+ 
+      } catch (error) {
+        
+      }
+  }
+
+  horario():string{
+    let date: Date = new Date();
+    let fecha:string= date.getDate().toString()+'-'+ date.getMonth().toString()+ '-'+date.getFullYear().toString()
+     + ' '+date.getHours().toString()+':'+ date.getMinutes().toString() ;
+     return fecha;
   }
 }

@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { Mensaje } from 'src/app/clases/mensaje/mensaje';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MensajeService {
+
+  private mensajesCollection:AngularFirestoreCollection<Mensaje>;
+  items:Observable<Mensaje[]>; 
+   
+  constructor(private afs: AngularFirestore) { 
+
+    this.mensajesCollection = afs.collection<Mensaje>('mensajes');
+    this.items = this.mensajesCollection.valueChanges( );
+  }
+
+  nuevoMensaje(mensaje:Mensaje){
+    
+    this.mensajesCollection.add(Object.assign({},mensaje));
+  }
+
+
+}

@@ -5,6 +5,8 @@ import { HomeComponent } from './componentes/home/home.component';
 import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.component';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { MayormenorComponent } from './componentes/juegos/mayormenor/mayormenor.component';
+import { PreguntadosComponent } from './componentes/juegos/preguntados/preguntados.component';
+import { SimonComponent } from './componentes/juegos/simon/simon.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { QuiensoyComponent } from './componentes/quiensoy/quiensoy.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
@@ -19,6 +21,8 @@ const routes: Routes = [
   {path:'juegos', component:JuegosComponent},
   {path:'juegos/ahorcado', component: AhorcadoComponent, canActivate: [UsuarioLogueadoGuard ]},
   {path:'juegos/mayorMenor', component: MayormenorComponent, canActivate: [UsuarioLogueadoGuard ]},
+  {path:'juegos/preguntados', component: PreguntadosComponent, canActivate: [UsuarioLogueadoGuard ]},
+  {path:'juegos/simon', component: SimonComponent, canActivate: [UsuarioLogueadoGuard ]},
   {path:'chat', component:ChatComponent, canActivate: [UsuarioLogueadoGuard ]},
   { path:'', component: HomeComponent},
   {path:'**', component: HomeComponent}

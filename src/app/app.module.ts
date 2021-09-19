@@ -23,6 +23,8 @@ import { AhorcadoComponent } from './componentes/juegos/ahorcado/ahorcado.compon
 import { HttpClientModule } from '@angular/common/http';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { MayormenorComponent } from './componentes/juegos/mayormenor/mayormenor.component';
+import { PreguntadosComponent } from './componentes/juegos/preguntados/preguntados.component';
+import { SimonComponent } from './componentes/juegos/simon/simon.component';
  
 
 
@@ -39,7 +41,9 @@ import { MayormenorComponent } from './componentes/juegos/mayormenor/mayormenor.
     ChatComponent,
     AhorcadoComponent,
     JuegosComponent,
-    MayormenorComponent
+    MayormenorComponent,
+    PreguntadosComponent,
+    SimonComponent
   ],
   imports: [ 
     BrowserModule,
