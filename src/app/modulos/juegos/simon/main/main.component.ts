@@ -1,11 +1,11 @@
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ServService } from 'src/app/servicios/serv/serv.service';
-
+import { botones } from 'src/app/servicios/serv/serv.service';
 @Component({
-  selector: 'app-simon',
-  templateUrl: './simon.component.html',
-  styleUrls: ['./simon.component.css'],
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.css'],
   animations: [
     trigger('fade', [
       state('small', style({
@@ -16,9 +16,8 @@ import { ServService } from 'src/app/servicios/serv/serv.service';
       })),
       transition('small <=> large', animate(500))])]
 })
-export class SimonComponent implements OnInit {
-  nivel:any;
-  colorBlock: Array<Object>;
+export class MainComponent implements OnInit {
+  colorBlock: Array<botones>;
   colorSeries: Array<number> = [];
   clickMulti: boolean = true;
   constructor(public ServService: ServService) {
@@ -27,6 +26,6 @@ export class SimonComponent implements OnInit {
     this.colorSeries = ServService.colorSeries;
   }
   ngOnInit() {
-   this.nivel= this.ServService.colorSeries.length;
   }
-} 
+
+}

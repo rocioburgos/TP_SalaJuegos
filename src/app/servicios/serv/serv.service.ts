@@ -1,16 +1,20 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable } from '@angular/core'; 
+export interface botones{
+  color:string;
+  animate:string;
+  audio:any;
+  posicion:number;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class ServService {
 
-
-  colorBlock: Array<Object> = [{ color: "red", animate: "large", audio: new Audio() }, { color: "green", animate: "large", audio: new Audio() }, { color: "yellow", animate: "large", audio: new Audio() }, { color: "blue", animate: "large", audio: new Audio() }]
+  colorBlock: Array<botones> = [{ color: "red", animate: "large", audio: new Audio(), posicion:0 }, { color: "green", animate: "large", audio: new Audio(), posicion:1 }, { color: "yellow", animate: "large", audio: new Audio(), posicion:2 }, { color: "blue", animate: "large", audio: new Audio(), posicion:3 }]
   colorSeries: Array<number> = [];
   level: number = 1;
   index: number = 0;
-  lastClicked!: number;
+  lastClicked: number=0;
   playerChoise: Array<number> = [];
   addLevelFlag: boolean = true;
   clickMulti: boolean = true;
@@ -26,13 +30,18 @@ export class ServService {
     this.loadSounds();
   }
   loadSounds(): void {
-    for (const key in this.colorBlock) {
-  //    this.colorBlock[key]['audio'].src = `./../assets/Audio/${key}.wav`;
-    //  this.colorBlock[key]['audio'].load();
-    }
-    this.failSound.src = `./../assets/Audio/fail.mp3`;
+    let valores= Object.values(this.colorBlock); 
+
+    valores.forEach(value => {
+      console.log(value.audio)
+      
+      value.audio.src = `./../assets/juegos/simon/Audio/${value.posicion}.wav`;
+      value.audio.load();
+    })  
+
+    this.failSound.src = `./../assets/juegos/simon/Audio/fail.mp3`;
     this.failSound.load()
-    this.buttonClick.src = `./../assets/Audio/button.mp3`;
+    this.buttonClick.src = `./../assets/juegos/simon/Audio/button.mp3`;
     this.buttonClick.load();
   }
 
@@ -42,7 +51,7 @@ export class ServService {
     this.getNewIndex();
     setTimeout(() => {
       if (this.index < this.colorSeries.length) {
-       // this.animateMe(this.colorSeries[this.index]);
+        this.animateMe(this.colorSeries[this.index]);
         this.index++;
         this.runGame();
       }
@@ -54,14 +63,14 @@ export class ServService {
     }, this.timeWait)
   }
 
-animateMe(color: number): void {
-   // this.lastClicked ? this.colorBlock[this.lastClicked]['audio'].pause() : undefined;
-  //  this.colorBlock[color]['audio'].play();
-  //  this.colorBlock[color]['animate'] = "small";
+  animateMe(color: number): void {
+    this.lastClicked ? this.colorBlock[this.lastClicked]['audio'].pause() : undefined;
+    this.colorBlock[color]['audio'].play();
+    this.colorBlock[color]['animate'] = "small";
     this.clickMulti = false;
     setTimeout(() => {
       this.lastClicked = color;
-    //  this.colorBlock[color]['animate'] = "large";
+      this.colorBlock[color]['animate'] = "large";
       this.clickMulti = true;
     }, 500);
   }
@@ -74,7 +83,7 @@ animateMe(color: number): void {
   }
 
   addPlayerChoise(Choise: number): any {
-  //  this.animateMe(Choise);
+    this.animateMe(Choise);
     this.playerChoise.push(Choise);
     this.checkChoisePath(Choise) ? (this.playerChoise.length == this.colorSeries.length) ? this.levelUp() : undefined : this.restLevel();
   }
@@ -99,4 +108,5 @@ animateMe(color: number): void {
     this.timeWait -= 10;
     this.runGame();
   }
+
 }

@@ -3,9 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { JuegosComponent } from './juegos.component';    
 import { MayormenorComponent } from './mayormenor/mayormenor.component';
-import { PreguntadosComponent } from './preguntados/preguntados.component'; 
-import { SimonComponent } from './simon/simon.component';
-  
+import { PreguntadosComponent } from './preguntados/preguntados.component';  
+import { MainComponent } from './simon/main/main.component';
  
 
 const routes: Routes = [ 
@@ -30,7 +29,7 @@ const routes: Routes = [
         ,
         {
           path:'simon',
-          component:SimonComponent
+          component:MainComponent
         }
       ] 
   }
