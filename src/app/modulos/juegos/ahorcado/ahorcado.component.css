@@ -1,13 +1,33 @@
-.column {
+.column{
     float: left;
     width: 33.33%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    height: 200px; /* Should be removed. Only for demonstration */
   }
   
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-    }
+  
+
+
+    .tecla{
+      padding: 0.1em 0.6em;
+      border: 1px solid #CCC;
+      font-family: Arial,Helvetica,sans-serif;
+      background-color: #F7F7F7;
+      color: #333;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 2px #FFF inset;
+      border-radius: 3px;
+      display: inline-block;
+      margin: 0px 0.1em;
+      text-shadow: 0px 1px 0px #FFF;
+      line-height: 1.4;
+      white-space: nowrap;
+      font-size: 12px;
+      cursor: pointer;
+      } 
+      .padre{
+        border: 1px;
+        display: inline-block;
+        width: 28px;
+        margin: 3px;
+        text-align: left;
+     }

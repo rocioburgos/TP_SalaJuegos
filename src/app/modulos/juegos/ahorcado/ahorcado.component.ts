@@ -11,19 +11,14 @@ import { Palabras } from './../../../clases/palabras/palabras';
   styleUrls: ['./ahorcado.component.css']
 })
 export class AhorcadoComponent implements OnInit {
-
-
-   //constantes que determinan la ruta relativa y extension de las imagenes del juego del ahorcado 
+ 
  
  URL_IMAGENES_PRE = "assets/juegos/ahorcado/"
- URL_IMAGENES_EXT = ".jpg"  
-    //Booleanos que controlan la aparicion o desaparicion de los botones de jugar y volver a intentar   
+ URL_IMAGENES_EXT = ".jpg"   
    
     juegoOn = true;
     juegoOff = !this.juegoOn;
-  
-    //Definimos las variables del scope que van a interactuar con el DOM por medio del bindeado
-  
+ 
   palabraoculta:any; 
   mascara ="";
   abecedario:Array<string> = [];
@@ -31,17 +26,11 @@ export class AhorcadoComponent implements OnInit {
   letrasUsadas = "";
   mensaje = "¿Qué desea hacer?";
   vidaImagen = this.URL_IMAGENES_PRE+"ahorcadoinicial"+this.URL_IMAGENES_EXT; //URL imagen cambiante durante los fallos en el juego
-  
-  
-  // Cuenta atras del juego. Si la cuenta llega a cero, el juego se acaba. 
-  
-  timeLeft: number = 90;
-   interval:any;
-  
-
  
+  timeLeft: number = 90;
+   interval:any; 
+
   palabritas: Palabras = new Palabras(); // Instanciamos la clase palabras, donde hallamos las palabras para jugar
-  
 
   selectedLetter:any;
    constructor(
@@ -56,6 +45,11 @@ export class AhorcadoComponent implements OnInit {
      }    
     } 
 
+
+    letraElegida(obj:any){ 
+      this.selectedLetter= obj;
+    }
+    
  ngOnInit() {   
   this.getPalabras(); //inicializamos el metodo que realiza un servicio GET y se trae todas las palabras del diccionario
    }
@@ -84,8 +78,9 @@ export class AhorcadoComponent implements OnInit {
  
  //Metodo o función principal que se encarga de ejecutar todas las acciones del juego, una vez que pulsamos el boton de "probar suerte" (en el HTML)
  
-   game(selectedLetter:any) {
- 
+   game() {
+     if(this.selectedLetter != null){
+    let selectedLetter = this.selectedLetter;
      let temp = [...this.mascara];  //Creamos una array temporal que recibe el valor actual de la palabra oculta  
      let character = 'o'
      let contador = temp.length; //creamos una variable que nos sirve para evaluar. Tambien podemos usar un boolean
@@ -106,6 +101,7 @@ export class AhorcadoComponent implements OnInit {
        if(this.mascara == this.palabraoculta) { //Si la palabra de la mascara coincide con la palabra oculta, significa que hemos ganado. ¡HURRA!       
        this.gameOver(); //En tal caso, ejecutariamos la función de fin de juego
        }    
+      }
    }  
 
 
