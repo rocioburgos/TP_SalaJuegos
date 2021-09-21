@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 import { ChatComponent } from './chat.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ChatRoutingModule,
-    FormsModule
+    FormsModule 
   ]
 })
 export class ChatModule { }

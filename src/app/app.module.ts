@@ -9,13 +9,13 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {firebase} from '../environments/firebase';
 import { AuthService } from './servicios/Auth/auth.service';
 import { JugadoresService } from './servicios/jugadores/jugadores.service';
-import { HttpClientModule } from '@angular/common/http';  
-import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';    
+import { NavbarComponent } from './modulos/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent   
+    AppComponent   ,
+    NavbarComponent
   ],
   imports: [ 
     BrowserModule,
@@ -25,9 +25,11 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     AngularFireAuthModule,
     AngularFirestoreModule ,
     HttpClientModule  
+  ], 
+  providers: [
+    AuthService
+    , JugadoresService
   ],
-  providers: [AuthService
-    , JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

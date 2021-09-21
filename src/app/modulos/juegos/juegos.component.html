@@ -1,9 +1,20 @@
  
-<div class="row row-cols-1 row-cols-md-4 ">
+<router-outlet></router-outlet>
+<div class="row row-cols-1 row-cols-md-4">
     <div class="col">
         <div class="card bg-transparent text-dark"  >
             <div class="card-body"> 
-                <a href="juegos/ahorcado" class="btn btn-dark">Ahorcado</a>
+                <a   (click)='ahorcado()'  class="btn btn-dark">Ahorcado</a>
+            </div>
+            <img src="./../../../assets/juegos/ahorcado.png" class="card-img-top rounded-circle" >
+        
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card bg-transparent text-dark"  >
+            <div class="card-body"> 
+                <button (click)='ahorcado()'  class="btn btn-dark">Ahorcado BTN</button>
             </div>
             <img src="./../../../assets/juegos/ahorcado.png" class="card-img-top rounded-circle" >
         
@@ -12,7 +23,7 @@
 <div class="col">
     <div class="card bg-transparent text-dark" >
         <div class="card-body "> 
-            <a href="juegos/preguntados" class="btn btn-dark"   >Preguntados</a>
+            <a   (click)='preguntados()' class="btn btn-dark">Preguntados</a>
         </div>
         <img src="./../../../assets/juegos/preguntados.jpg" class="card-img-top rounded-circle " >
     </div>
@@ -20,22 +31,18 @@
 <div class="col">
     <div class="card bg-transparent text-dark"  >
         <div class="card-body"> 
-            <a href="juegos/mayorMenor" class="btn btn-dark">Mayor o menor</a>
+            <a (click)= 'mayorMenor()' class="btn btn-dark">Mayor o menor</a>
         </div>
         <img src="./../../../assets/juegos/mayor-menor.jpg" class="card-img-top rounded-circle" >
     
     </div>
 </div>
-
 <div class="col ">
 <div class="card bg-transparent text-dark" >
     <div class="card-body "> 
-        <a href="juegos/simon" class="btn btn-dark" >Simon dice</a>
+        <a  (click)="simon()" class="btn btn-dark" >Simon dice</a>
     </div>
     <img src="./../../../assets/juegos/simon-dice.jpg" class="card-img-top rounded-circle" >
 </div>
 </div>
-
-
-
 </div>

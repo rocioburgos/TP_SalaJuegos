@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from '@firebase/util';
-import { switchMap } from 'rxjs-compat/operator/switchMap';
-import { tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/servicios/Auth/auth.service';
 
 @Component({
@@ -10,8 +7,8 @@ import { AuthService } from 'src/app/servicios/Auth/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
 
+export class NavbarComponent implements OnInit {
 
   titulo = 'Sala de Juegos';
   estado_activo?:boolean;
@@ -46,6 +43,4 @@ export class NavbarComponent implements OnInit {
         this.estado_activo =true;
       }
   }
-
-
 }

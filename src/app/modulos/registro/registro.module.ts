@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 import { RegistroRoutingModule } from './registro-routing.module';
 import { RegistroComponent } from './registro.component';
 import { FormsModule } from '@angular/forms';
+ 
 
 
 @NgModule({
   declarations: [
-    RegistroComponent
+    RegistroComponent 
   ],
   imports: [
     CommonModule,
     RegistroRoutingModule,
-    FormsModule
+    FormsModule 
   ]
 })
 export class RegistroModule { }

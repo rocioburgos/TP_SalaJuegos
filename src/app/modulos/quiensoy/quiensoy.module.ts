@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { QuiensoyRoutingModule } from './quiensoy-routing.module';
-import { QuiensoyComponent } from './quiensoy.component'; 
+import { QuiensoyComponent } from './quiensoy.component';  
 
 @NgModule({
   declarations: [
-    QuiensoyComponent 
+    QuiensoyComponent   
   ],
   imports: [
     CommonModule,
-    QuiensoyRoutingModule
-  ]
+    QuiensoyRoutingModule  
+  ] 
 })
 export class QuiensoyModule { }

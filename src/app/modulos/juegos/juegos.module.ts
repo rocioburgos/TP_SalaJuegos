@@ -5,9 +5,8 @@ import { JuegosRoutingModule } from './juegos-routing.module';
 import { JuegosComponent } from './juegos.component';  
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { MayormenorComponent } from './mayormenor/mayormenor.component';
-import { PreguntadosComponent } from './preguntados/preguntados.component';
-import { SimonComponent } from './simon/simon.component';
-import { FormsModule } from '@angular/forms';
+import { PreguntadosComponent } from './preguntados/preguntados.component'; 
+import { FormsModule } from '@angular/forms';   
 
 
 @NgModule({
@@ -15,13 +14,12 @@ import { FormsModule } from '@angular/forms';
     JuegosComponent,
     AhorcadoComponent,
     MayormenorComponent,
-    PreguntadosComponent,
-    SimonComponent 
+    PreguntadosComponent  
   ],
   imports: [
     CommonModule,
     JuegosRoutingModule,
-    FormsModule
+    FormsModule 
   ]
 })
 export class JuegosModule { }
