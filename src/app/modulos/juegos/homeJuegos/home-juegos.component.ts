@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-juegos',
-  templateUrl: './juegos.component.html',
-  styleUrls: ['./juegos.component.css']
+  selector: 'app-home-juegos',
+  templateUrl: './home-juegos.component.html',
+  styleUrls: ['./home-juegos.component.css']
 })
-export class JuegosComponent implements OnInit {
+export class HomeJuegosComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router:Router) { }
 
@@ -28,5 +28,4 @@ export class JuegosComponent implements OnInit {
   simon(){
     this.router.navigate(['juegos/simon']);
   }
-  
 }

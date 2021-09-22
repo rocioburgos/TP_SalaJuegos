@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'; 
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
-import { JuegosComponent } from './juegos.component';    
+import { HomeJuegosComponent } from './homeJuegos/home-juegos.component'; 
 import { MayormenorComponent } from './mayormenor/mayormenor.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';  
 import { MainComponent } from './simon/main/main.component';
@@ -10,7 +10,7 @@ import { MainComponent } from './simon/main/main.component';
 const routes: Routes = [ 
   {
     path: '',
-    component: JuegosComponent  
+    component: HomeJuegosComponent  
     ,children:
       [
         {
@@ -32,7 +32,8 @@ const routes: Routes = [
           component:MainComponent
         }
       ] 
-  }
+  },
+  {path:'homejuegos', component: HomeJuegosComponent , pathMatch:'full'}
 ];
 
 @NgModule({
