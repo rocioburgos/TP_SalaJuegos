@@ -1,9 +1,9 @@
 
 export class Palabras {
     palabrasJuego = [
-        "superfluo",
+        "hola",
         "inefable",
-        "inconmensurable",
+        "super",
         "etereo",
         "sempiterno",
         "petricor",
@@ -22,9 +22,7 @@ export class Palabras {
         "elocuencia",
         "efervescencia",
         "ataraxia",
-        "olvido",
-        "iridiscencia",
-        "limerencia",
+        "olvido", 
         "ascendrado",
         "arrebol",
         "sonambulo",
@@ -35,7 +33,8 @@ export class Palabras {
         "nostalgia",
         "inmarcesible",
         "aurora",
-        "desenlace"
+        "desenlace",
+        "messi"
         
     ];  
 }
