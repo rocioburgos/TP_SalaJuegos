@@ -12,6 +12,7 @@ import { JugadoresService } from './servicios/jugadores/jugadores.service';
 import { HttpClientModule } from '@angular/common/http';    
 import { NavbarComponent } from './modulos/navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PeliculasService } from './servicios/peliculas/peliculas.service';
 @NgModule({
   declarations: [
     AppComponent   ,
@@ -24,12 +25,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(firebase),
     AngularFireAuthModule,
     AngularFirestoreModule ,
-    HttpClientModule  
+    HttpClientModule ,  
   ],  
  exports: [BrowserAnimationsModule],
   providers: [
     AuthService
-    , JugadoresService
+    , JugadoresService,
+    PeliculasService
   ],
   bootstrap: [AppComponent]
 })
