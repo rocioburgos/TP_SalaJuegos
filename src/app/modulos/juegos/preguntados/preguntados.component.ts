@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculasService } from 'src/app/servicios/peliculas/peliculas.service';
  
 @Component({
   selector: 'app-preguntados',
@@ -16,8 +17,14 @@ export class PreguntadosComponent implements OnInit {
   vidas=3;
 
   respuesta_correcta:number=0;
-  constructor( ) { 
-   
+  constructor(private peliSrv:PeliculasService) { 
+   this.peliSrv.getPelicula().subscribe(pelis =>{ 
+    this.peliculas.push(pelis);
+     this.peliculas = this.peliculas[0].results; 
+    
+    this.generarPregunta();
+     
+    }); 
   }
 
   ngOnInit(): void {
