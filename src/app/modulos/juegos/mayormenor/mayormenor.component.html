@@ -1,6 +1,5 @@
  
 <div class="container" style="background:slateblue;">
-    
     <div class="row" style="text-align:center">
         <div class="column" style="min-width: 50%; text-align: left; max-height: 80px">
             <h2 >Aciertos: {{cuenta}}</h2>
@@ -10,28 +9,23 @@
         <div class="column"  >  
            <label *ngIf='mostrarFin'>Termino el juego, su puntaje es : {{cuenta}}</label>
            <br> 
-            <button   class="btn btn-primary" role="button" style="margin-right: 5px" *ngIf='mostrarFin'>volver a intentarlo</button>
-            
+            <button   class="btn btn-primary" role="button" style="margin-right: 5px" *ngIf='mostrarFin' (click)='reload()'>volver a intentarlo</button>
         </div>
-      
     </div>
 
-
-    <div class="row"  >
+    <div  class="row" >
+        <h3> {{mensaje}} </h3>
+    </div>
+    <div class="row" >
         <div class="column "  >
             <img width="100px"  src={{cartaPrincipal.pathImg}}>
         </div>
         <div class="column">
-            <label >Esta carta es: </label>
-            
+            <label >Esta carta es: </label>  
             <button (click)='play("mayor")'>Mayor</button>
             <button (click)='play("igual")'>Igual</button>
             <button (click)='play("menor")'>Menor</button> 
-            <label>que esta carta</label>
-        </div>
-        <div class="column"  > 
-            <img width="100px"  src={{cartaSecundaria.pathImg}}>
-        </div>
+            <label>que la siguiente</label>
+        </div> 
     </div>
-
 </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/servicios/Auth/auth.service';
+import { JugadoresService } from 'src/app/servicios/jugadores/jugadores.service';
+import { JSDocAugmentsTag } from 'typescript';
 
 @Component({
   selector: 'app-mayormenor',
@@ -9,7 +12,7 @@ export class MayormenorComponent implements OnInit {
 
   cartaPrincipal;
   cartaSecundaria;
- 
+  mensaje!:string;
  
   cuenta: number = 0;
   vidas: number = 3;
@@ -31,7 +34,7 @@ export class MayormenorComponent implements OnInit {
 ];
 
 
-  constructor() {
+  constructor(private jugadoresSrv:JugadoresService, private authSrv:AuthService) {
     this.cartaPrincipal = this.calcularCartaRandom();
     this.cartaSecundaria = this.calcularCartaRandom();
   }
@@ -47,13 +50,19 @@ export class MayormenorComponent implements OnInit {
   play(res:string){
     if(this.respuesta(res)){
       this.cuenta++;
-      this.cartaPrincipal = this.calcularCartaRandom();
+      this.cartaPrincipal = this.cartaSecundaria;
       this.cartaSecundaria= this.calcularCartaRandom();
+      this.mensaje ='BIEN!'
     }else{
       if(this.vidas > 0){ 
       this.vidas--;
+      this.mensaje ='NO :(';
+      
+      this.cartaPrincipal = this.cartaSecundaria;
+      this.cartaSecundaria= this.calcularCartaRandom();
       if(this.vidas == 0){
-        this.mostrarFin= true;
+        this.mostrarFin= true; 
+        this.guardarResultados();
       }
     }
     }
@@ -88,5 +97,17 @@ export class MayormenorComponent implements OnInit {
         return false;
         break;
     }
+  }
+
+  reload() {
+    window.location.reload();
+  }
+
+  guardarResultados(){
+     //guardar en firebase
+     let email = this.authSrv.getCurrentUserLS().email;
+     let resultados = { 'email': email, 'fecha': new Date(), 'juego': 'mayorMenor', 'puntaje': this.cuenta }
+     this.jugadoresSrv.registrarResultados(resultados).then((res) => { 
+     })
   }
 }

@@ -17,9 +17,15 @@ export class MensajeService {
     this.items = this.mensajesCollection.valueChanges( );
   }
 
-  nuevoMensaje(mensaje:Mensaje){
-    
-    this.mensajesCollection.add(Object.assign({},mensaje));
+  nuevoMensaje(mensaje:Mensaje){ 
+   return this.mensajesCollection.add(Object.assign({},mensaje));
+  }
+
+  traerMensajes(){ 
+    this.mensajesCollection =  this.afs.collection('mensajes', 
+                                      ref => ref.orderBy('diaHora',  "asc")       
+                                    );  
+      return this.mensajesCollection.valueChanges(); 
   }
 
 

@@ -13,8 +13,12 @@ export interface Sesiones{
 @Injectable({
   providedIn: 'root'
 })
+
 export class JugadoresService {
 
+  
+  private resultadosCollection:AngularFirestoreCollection<any>;
+  resultados:Observable<any[]>;
   private jugadoresCollection:AngularFirestoreCollection<Usuario>;
     items:Observable<Usuario[]>;
   private sesionesCollection:AngularFirestoreCollection<any>;
@@ -26,6 +30,10 @@ export class JugadoresService {
 
     this.sesionesCollection = afs.collection<Usuario>('sesiones');
     this.sesiones = this.sesionesCollection.valueChanges();
+
+
+    this.resultadosCollection = afs.collection<any>('resultados');
+    this.resultados= this.resultadosCollection.valueChanges();
   }
 
   registrarNuevoJugador(usuario:Usuario){
@@ -51,5 +59,16 @@ export class JugadoresService {
    const ses:Sesiones = {fecha: fecha,   email_user: email   };
 
     this.sesionesCollection.add(Object.assign({},ses));
+  }
+
+
+  registrarResultados(data:any){
+
+  return  this.resultadosCollection.add(Object.assign({},data)); 
+  }
+
+
+  registrarEncuesta(datoUser:any){
+    
   }
 }

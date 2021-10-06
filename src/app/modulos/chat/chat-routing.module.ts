@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuarioLogueadoGuard } from 'src/app/guard/usuario-logueado.guard';
 import { ChatComponent } from './chat.component';
 
-const routes: Routes = [{ path: '', component: ChatComponent }];
+const routes: Routes = [{ path: '', component: ChatComponent , canActivate:[UsuarioLogueadoGuard]}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

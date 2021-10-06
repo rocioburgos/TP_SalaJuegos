@@ -4,7 +4,7 @@
     <div class="col">
         <div class="card bg-transparent text-dark"  >
             <div class="card-body"> 
-                <a   (click)='ahorcado()'  class="btn btn-dark">Ahorcado</a>
+                <a   [routerLink]="['/juegos/ahorcado']"  class="btn btn-dark">Ahorcado</a>
             </div>
             <img src="./../../../assets/juegos/ahorcado.png" class="card-img-top rounded-circle" >
         
@@ -35,5 +35,6 @@
     <img src="./../../../assets/juegos/simon-dice.jpg" class="card-img-top rounded-circle" >
 </div>
 </div>
-</div><router-outlet></router-outlet> 
  
+</div>
+<router-outlet></router-outlet>

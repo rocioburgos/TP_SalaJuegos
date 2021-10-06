@@ -1,1 +1,19 @@
-<p>Preguntados works!</p>
+<div id="content">
+
+ 
+    Vidas: <span class='bagge' id='numRespuestasCorrectas'> {{vidas}} |</span> 
+        Respuestas correctas: <span class='bagge' id='numRespuestasCorrectas'> {{aciertos}} </span> 
+        
+ 
+    <div id="tablero">
+        <h1 id='pregunta-titulo'>¿Cual fue la audiencia de esta pelicula?</h1>
+        <img src="{{imgPath}} " width="100px">
+        <ol id="pregunta-respuestas"  *ngFor='let item of opciones_incorrectas'>
+
+            <li> <button> {{item}} </button></li>
+          
+            
+        </ol> 
+    </div>
+    
+    </div><!-- end content -->

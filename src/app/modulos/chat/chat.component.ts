@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mensaje } from 'src/app/clases/mensaje/mensaje';
+import { AuthService } from 'src/app/servicios/Auth/auth.service';
 import { MensajeService } from 'src/app/servicios/mensaje/mensaje.service';
 @Component({
   selector: 'app-chat',
@@ -7,54 +8,57 @@ import { MensajeService } from 'src/app/servicios/mensaje/mensaje.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-
-
-  remitente:string='Natalia';
-  destinatario:string='Pepe';//el usuario Actual, depende de si estoy mandando o recibiendo mensajes
-  fecha:string='12 Sept';
-  hora:string='11:11 AM';
+  remitente: string = '';
+  destinatario: string = '';//el usuario Actual, depende de si estoy mandando o recibiendo mensajes
+  fecha: string = '';
+  hora: string = '';
   //mensajes?:Mensaje;
-  mensaje:string='';
-  mensajeEnviar:string='';
-  constructor(private msjSrv:MensajeService) { }
+  mensaje: string = '';
+  mensajeEnviar: string = '';
+
+
+  mensajes: Array<any> = [];
+  constructor(private msjSrv: MensajeService, private authSrv: AuthService) { }
 
   ngOnInit(): void {
-  }
-
-   mostrarMensajesDeUnUsuario(){
-   //mostrar los mensajes en la conversacion de 
-   //un usuario especifico, mostrar en orden la conversacion
-   //con los ultimos mensajes
+    this.mostrarRecientes();
   }
 
 
-  
-  mostrarRecientes(){
-   //muestro los 5 recientes chats con sus ultimos mensaje
-  //para cargar el area de recientes
-  }
 
+  mostrarRecientes() {
+    this.msjSrv.traerMensajes().subscribe((data) => {
 
-  mandarMensaje(){
-     //tomar -mensajeEnviar -remitente (va a ser el detinatario) - mi usuario actual y la fecha y hora
-      //y mandarla a firebase
-      
-      try {
-        if(this.mensajeEnviar!='' && this.mensajeEnviar!= null && this.mensajeEnviar != ' '){
-          let mensaje:Mensaje= new Mensaje('pepe@gmail.com','pepito@gmail.com',"Holisss",this.horario());
-          this.msjSrv.nuevoMensaje(mensaje);  
-        }
+      this.mensajes = data;
+      this.mensajes.sort();
  
-      } catch (error) {
-        
-      }
+      console.log(data);
+    });
   }
 
-  horario():string{
+
+  mandarMensaje() {
+    try {
+      let email = this.authSrv.getCurrentUserLS().email;
+      if (this.mensajeEnviar != '' && this.mensajeEnviar != null && this.mensajeEnviar) {
+        let mensaje: Mensaje = new Mensaje(email, this.mensajeEnviar, this.horario());
+        this.msjSrv.nuevoMensaje(mensaje).then((res) => {
+          this.mensajeEnviar = '';
+        }).catch((err) => {
+          console.log(err);
+        });
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  horario(): string {
     let date: Date = new Date();
-    let fecha:string= date.getDate().toString()+'-'+ date.getMonth().toString()+ '-'+date.getFullYear().toString()
-     + ' '+date.getHours().toString()+':'+ date.getMinutes().toString() ;
-     return fecha;
+    let fecha: string = date.getDate().toString() + '-' + date.getMonth().toString() + '-' + date.getFullYear().toString()
+      + ' ' + date.getHours().toString() + ':' + date.getMinutes().toString();
+    return fecha;
   }
 
 }
