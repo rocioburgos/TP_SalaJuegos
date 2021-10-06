@@ -50,24 +50,23 @@
         *ngIf="formulario.get('tel')?.hasError('maxlength') && formulario.get('tel')?.touched">Revise el telefono solo
         puede tener 10 numeros.</small>
     </div>
-
+    <br>
+    <br>
     <div class="row">
-      <div class="col">
-        <p>¿Que cambios haria en los juegos?</p>
+      <div class="col-4">
+        <h3 > ¿Que cambios haria en los juegos?</h3>
         <textarea name="" id="" cols="30" rows="5"></textarea>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-6">
-        <p>¿Volveria a jugar?</p>
+    
+      <div class="col-4">
+        <h3> ¿Volveria a jugar?</h3>
           <input type="radio" id="si" name="fav_language" value="HTML">
           <label for="si">Si</label><br>
           <input type="radio" id="no" name="fav_language" value="CSS">
           <label for="no">No</label><br>
       </div>
-      <div class="col-6">
-        <p>¿Que le llamo la atencion?</p>
+      <div class="col-4">
+        <h3 > ¿Que le llamo la atencion?</h3>
         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
         <label for="vehicle1">Graficos</label><br>
         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">

@@ -59,8 +59,8 @@ width:7%;
 p ,a {
 font-family: "Asap-Regular";
 }
-.header h1 {
-font-size:50px;
+.header h1 , h2{
+font-size:40px;
 color: #fff;
 font-family: "Audiowide-Regular";
 letter-spacing:3px;

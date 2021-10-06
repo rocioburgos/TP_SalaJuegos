@@ -19,11 +19,13 @@ import { botones } from 'src/app/servicios/serv/serv.service';
 export class MainComponent implements OnInit {
   colorBlock: Array<botones>;
   colorSeries: Array<number> = [];
-  clickMulti: boolean = true;
+  clickMulti: boolean = true; 
+  
   constructor(public ServService: ServService) {
     this.ServService = ServService;
     this.colorBlock = ServService.colorBlock;
     this.colorSeries = ServService.colorSeries;
+    this.ServService = ServService;
   }
   ngOnInit() {
   }

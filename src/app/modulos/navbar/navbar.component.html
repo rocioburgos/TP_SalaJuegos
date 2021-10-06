@@ -5,7 +5,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a routerLink='' class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <!--img src="../assets/favicon.png" width="50px"--> 
-          <h1>  {{titulo}} </h1>
+          <h2>  {{titulo}} </h2>
           </a>
           <!-- VISIBLE PARA TODOS-->
           <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -20,11 +20,15 @@
                 </a>
               </li>
               <li>
-                <a href='#' class="nav-link text-white">
+                <a [routerLink]="['/listado']" class="nav-link text-white">
                   Listados
                 </a>
               </li>  
-  
+              <li>
+                <a  [routerLink]="['/encuesta/']" class="nav-link text-white">
+                  Encuesta
+                </a>
+              </li> 
               <li>
                 <a href='quiensoy' class="nav-link text-white">
                 Quien soy

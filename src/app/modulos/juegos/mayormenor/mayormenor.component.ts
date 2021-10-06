@@ -105,8 +105,10 @@ export class MayormenorComponent implements OnInit {
 
   guardarResultados(){
      //guardar en firebase
+     let now = new Date();
+     let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear(); 
      let email = this.authSrv.getCurrentUserLS().email;
-     let resultados = { 'email': email, 'fecha': new Date(), 'juego': 'mayorMenor', 'puntaje': this.cuenta }
+     let resultados = { 'email': email, 'fecha':fecha, 'juego': 'mayorMenor', 'puntaje': this.cuenta }
      this.jugadoresSrv.registrarResultados(resultados).then((res) => { 
      })
   }

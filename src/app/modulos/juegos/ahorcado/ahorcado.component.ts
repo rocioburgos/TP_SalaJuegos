@@ -140,25 +140,31 @@ export class AhorcadoComponent implements OnInit {
     this.dibujarJuego(palabraElegida); //Al iniciar, ejecutamos el metodo dibujar      
     console.log(palabraElegida);
   }
- 
-
-
+  
   //Metodo que ejecutamos cuando el juego se termina, tanto si hemos perdido o ganado
 
-  gameOver() {
+  gameOver() {  
+    
+    let email = this.authSrv.getCurrentUserLS().email;
+    let now = new Date();
+    let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear(); 
     this.juegoOn = false;
     this.juegoOff = !this.juegoOn
     if (this.vidas == 0) { //Evaluamos si hemos perdido por medio del marcador de vidas del jugador
       this.mascara = this.palabraoculta;
       //guardar en firebase
-      let email = this.authSrv.getCurrentUserLS().email;
-      let resultados = { 'email': email, 'fecha': '', 'juego': 'Ahorcado', 'puntaje': '' }
+      let resultados = { 'email': email, 'fecha': fecha, 'juego': 'Ahorcado', 'puntaje': this.vidas }
       this.jugadoresSrv.registrarResultados(resultados).then((res) => {
 
         this.mensaje = "HAS PERDIDO. EL JUEGO HA TERMINADO";
       })
     } else {
-      this.mensaje = "¡FELICIDADES! ¡HAS GANADO!"
+
+      let resultados = { 'email': email, 'fecha': fecha, 'juego': 'Ahorcado', 'puntaje': this.vidas }
+      this.jugadoresSrv.registrarResultados(resultados).then((res) => {
+
+        this.mensaje = "¡FELICIDADES! ¡HAS GANADO!"
+      })
       clearInterval(this.interval);
     }
   }
@@ -173,4 +179,6 @@ export class AhorcadoComponent implements OnInit {
   backClicked() {
     this._location.back();
   }
+
+  
 }

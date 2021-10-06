@@ -11,12 +11,21 @@
         </div>
     </div>
     <div class="col ">
-    <div class="card bg-transparent text-dark" >
-        <div class="card-body "> 
-            <a href="#" class="btn btn-dark" >Ranking</a>
+        <div class="card bg-transparent text-dark" >
+            <div class="card-body "> 
+                <a [routerLink]="['/listado']" class="btn btn-dark" >Ranking</a>
+            </div>
+            <img src="./../../../assets/carousel/listado.jpg" class="card-img-top rounded-circle" >
         </div>
-        <img src="./../../../assets/carousel/listado.jpg" class="card-img-top rounded-circle" >
     </div>
-</div>
+    <div class="col">
+        <div class="card bg-transparent text-dark"  >
+            <div class="card-body"> 
+                <a [routerLink]="['/encuesta/']" class="btn btn-dark">Encuesta</a>
+            </div>
+            <img src="./../../../assets/carousel/juegos.png" class="card-img-top rounded-circle" >
+        
+        </div>
+    </div>
 </div>
 </div>

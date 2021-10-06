@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsuarioLogueadoGuard } from './guard/usuario-logueado.guard';
+import { ListadoResultadoComponent } from './modulos/listado-resultado/listado-resultado.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
   {
     path: 'encuesta',
     loadChildren: () => import('./modulos/encuesta/encuesta.module').then(m => m.EncuestaModule)
+  },
+  {
+    path: 'listado',
+   component: ListadoResultadoComponent
   },
   {
     path: '',

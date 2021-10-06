@@ -11,11 +11,13 @@ import { AuthService } from './servicios/Auth/auth.service';
 import { JugadoresService } from './servicios/jugadores/jugadores.service';
 import { HttpClientModule } from '@angular/common/http';    
 import { NavbarComponent } from './modulos/navbar/navbar.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';   
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ListadoResultadoComponent } from './modulos/listado-resultado/listado-resultado.component';   
 @NgModule({
   declarations: [
     AppComponent   ,
-    NavbarComponent, 
+    NavbarComponent,
+    ListadoResultadoComponent, 
   ],
   imports: [ 
     BrowserModule,

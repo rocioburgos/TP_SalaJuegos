@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core'; 
+import { AuthService } from '../Auth/auth.service';
+import { JugadoresService } from '../jugadores/jugadores.service';
 export interface botones{
   color:string;
   animate:string;
@@ -12,7 +14,7 @@ export class ServService {
 
   colorBlock: Array<botones> = [{ color: "red", animate: "large", audio: new Audio(), posicion:0 }, { color: "green", animate: "large", audio: new Audio(), posicion:1 }, { color: "yellow", animate: "large", audio: new Audio(), posicion:2 }, { color: "blue", animate: "large", audio: new Audio(), posicion:3 }]
   colorSeries: Array<number> = [];
-  level: number = 1;
+  level: number = 0;
   index: number = 0;
   lastClicked: number=0;
   playerChoise: Array<number> = [];
@@ -24,9 +26,9 @@ export class ServService {
   buttonClick: any = new Audio();
   timeWait: number = 1500;
   showLose: boolean = false;
+  mensaje:string='';
 
-
-  constructor() {
+  constructor(private jugadoresSrv:JugadoresService, private authSrv:AuthService) {
     this.loadSounds();
   }
   loadSounds(): void {
@@ -93,20 +95,41 @@ export class ServService {
   }
 
   restLevel() {
+    
+    this.mensaje='PERDIO. PUNTAJE: '+this.level;
+    
+    this.registrarResultado(this.level);
     this.colorSeries = [];
     this.playerChoise = [];
     this.hideStartButton = true;
     this.playingAuth = false;
+
     this.failSound.play();
     this.showLose = true;
     setTimeout(() => {
       this.showLose = false;
-    }, 2500);
+      this.mensaje='';
+      this.level=0;
+    }, 5000);
+
+
   }
   levelUp() {
+    this.level++;
     this.playerChoise = [];
     this.timeWait -= 10;
     this.runGame();
+  }
+
+
+  registrarResultado(puntaje:any){
+    //guardar en firebase
+    let now = new Date();
+    let fecha = now.getDate() + "-" + now.getMonth() + "-" + now.getFullYear();
+    let email = this.authSrv.getCurrentUserLS().email;
+    let resultados = { 'email': email, 'fecha': fecha, 'juego': 'simon', 'puntaje': puntaje }
+    this.jugadoresSrv.registrarResultados(resultados).then((res) => { 
+    })
   }
 
 }

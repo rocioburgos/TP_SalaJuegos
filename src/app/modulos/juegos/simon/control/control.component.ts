@@ -8,8 +8,8 @@ import { ServService } from 'src/app/servicios/serv/serv.service';
 })
 export class ControlComponent implements OnInit {
 
-  constructor(public ServService: ServService) {
-    this.ServService = ServService;
+  constructor( ) {
+     
 
   }
   ngOnInit(): void {

@@ -71,4 +71,10 @@ export class JugadoresService {
   registrarEncuesta(datoUser:any){
     
   }
+
+  traerResultados(){  
+    this.resultadosCollection =  this.afs.collection('resultados');  
+    return this.resultadosCollection.valueChanges(); 
+  }
+
 }
