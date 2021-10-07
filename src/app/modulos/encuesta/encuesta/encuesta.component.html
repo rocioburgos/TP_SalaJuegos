@@ -51,33 +51,51 @@
         puede tener 10 numeros.</small>
     </div>
     <br>
-    <br>
+    <br>    
     <div class="row">
       <div class="col-4">
         <h3 > ¿Que cambios haria en los juegos?</h3>
-        <textarea name="" id="" cols="30" rows="5"></textarea>
+        <textarea formControlName='sugerencias' class="form-control" cols="30" rows="5"></textarea>
+        <small class="form-text text-muted"
+        *ngIf="formulario.get('sugerencias')?.hasError('minlength') && formulario.get('sugerencias')?.touched">La sugerencia debe tener 10 caracteres minimo.</small>
+        <small class="form-text text-muted"
+        *ngIf="formulario.get('sugerencias')?.hasError('required') && formulario.get('sugerencias')?.touched">Su respuesta es requerida.</small>
       </div>
     
-      <div class="col-4">
+      <div class="col-4"> 
         <h3> ¿Volveria a jugar?</h3>
-          <input type="radio" id="si" name="fav_language" value="HTML">
-          <label for="si">Si</label><br>
-          <input type="radio" id="no" name="fav_language" value="CSS">
-          <label for="no">No</label><br>
+        <select class="form-select" id="playAgain" formControlName="playAgain">
+          <option value="">Seleccione uno</option>
+          <option value="si">Si </option>
+          <option value="no">No</option>
+          <option value="duda">No lo se</option>
+        </select>
+        <small class="invalid"
+        *ngIf="formulario.get('playAgain')?.hasError('required') && formulario.get('playAgain')?.touched">
+      La respuesta es requerida.
+      </small>
       </div>
       <div class="col-4">
-        <h3 > ¿Que le llamo la atencion?</h3>
+        <!--h3 > ¿Que le llamo la atencion?</h3>
         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
         <label for="vehicle1">Graficos</label><br>
         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
         <label for="vehicle2">Dificultad</label><br>
         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-        <label for="vehicle3">Jugabilidad</label>  
-      </div>
+        <label for="vehicle3">Jugabilidad</label-->  
+      
+        <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
+        <label for="recordar" class="form-check-label" for="terminos">
+          Aceptar términos y condiciones
+        </label> 
+      </div> 
+    </div> 
+    <div>
+      <h3> {{mensaje}} </h3>
     </div>
- 
-<button type="submit" class="btn btn-primary" [disabled]='formulario.invalid'>ENVIAR</button>
+<button type="submit" class="btn btn-success" [disabled]='formulario.invalid || !formulario.controls.terminos.value'>ENVIAR</button>
 </form>
+
 
 
 

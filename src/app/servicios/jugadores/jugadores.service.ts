@@ -23,7 +23,8 @@ export class JugadoresService {
     items:Observable<Usuario[]>;
   private sesionesCollection:AngularFirestoreCollection<any>;
   sesiones:Observable<any[]>;
-
+  private encuestasCollection:AngularFirestoreCollection<any>;
+  encuestas:Observable<any[]>;
   constructor(private readonly afs: AngularFirestore) { 
     this.jugadoresCollection = afs.collection<Usuario>('jugadores');
     this.items = this.jugadoresCollection.valueChanges( );
@@ -34,6 +35,10 @@ export class JugadoresService {
 
     this.resultadosCollection = afs.collection<any>('resultados');
     this.resultados= this.resultadosCollection.valueChanges();
+
+
+    this.encuestasCollection = afs.collection<any>('encuestas');
+    this.encuestas= this.encuestasCollection.valueChanges();
   }
 
   registrarNuevoJugador(usuario:Usuario){
@@ -68,8 +73,9 @@ export class JugadoresService {
   }
 
 
-  registrarEncuesta(datoUser:any){
-    
+  registrarEncuesta(datoUser:any){ 
+    this.encuestasCollection =  this.afs.collection('encuestas');  
+    return this.encuestasCollection.add(Object.assign({},datoUser)); 
   }
 
   traerResultados(){  
