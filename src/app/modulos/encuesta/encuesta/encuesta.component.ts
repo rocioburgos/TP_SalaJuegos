@@ -36,7 +36,7 @@ export class EncuestaComponent implements OnInit {
     nombre: form.nombre,
     apellido: form.apellido ,
     edad: form.edad ,
-    tel: form.nombre ,
+    tel: form.tel ,
     playAgain: form.playAgain ,
     sugerencias: form.sugerencias ,
     email: this.authSrv.getCurrentUserLS().email }
