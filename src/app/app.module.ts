@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './modulos/navbar/navbar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ListadoResultadoComponent } from './modulos/listado-resultado/listado-resultado.component';   
+import { JuegosModule } from './modulos/juegos/juegos.module';
 @NgModule({
   declarations: [
     AppComponent   ,
@@ -27,6 +28,7 @@ import { ListadoResultadoComponent } from './modulos/listado-resultado/listado-r
     AngularFireAuthModule,
     AngularFirestoreModule ,
     HttpClientModule ,  
+    JuegosModule
   ],  
  exports: [BrowserAnimationsModule],
   providers: [

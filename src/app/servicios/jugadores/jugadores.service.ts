@@ -79,8 +79,10 @@ export class JugadoresService {
   }
 
   traerResultados(){  
-    this.resultadosCollection =  this.afs.collection('resultados');  
+    //ordenarlos por fecha
+    this.resultadosCollection =  this.afs.collection('resultados' ,  ref => ref .orderBy('fecha',  "desc"  ));  
     return this.resultadosCollection.valueChanges(); 
+ 
   }
 
 }
